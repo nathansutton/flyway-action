@@ -17,6 +17,10 @@ inputs:
     description: Comma-separated list of locations to scan recursively for migrations
     required: true
     default: filesystem:./sql
+  schemas:
+    description: The schema name you are migrating in the dadtabase
+    required: false
+    default: public
   initSql:
     description: The SQL statements to run to initialize a new database connection immediately after opening it
     required: false
@@ -26,6 +30,7 @@ runs:
   env:
     FLYWAY_URL: ${{ inputs.url }}
     FLYWAY_USER: ${{ inputs.user }}
+    FLYWAY_SCHEMAS: ${{ inputs.schemas }}
     FLYWAY_PASSWORD: ${{ inputs.password }}
     FLYWAY_LOCATIONS: ${{ inputs.locations }}
     FLYWAY_INIT_SQL: ${{ inputs.initSql }}
