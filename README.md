@@ -33,7 +33,7 @@ jobs:
       - run: echo 'testing'
 ```
 
-Currently, it supports `url`, `user`, `password`, `initSql` and `locations`. `locations` are default to `filesystem:./sql`.
+Currently, it supports `url`, `user`, `password`, `initSql`, `schemas`, and `locations`. `locations` are default to `filesystem:./sql`.
 
 Extra configurations can be passed via environment variables.
 
