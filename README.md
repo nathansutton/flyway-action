@@ -25,7 +25,7 @@ jobs:
           --health-retries 5
     steps:
       - uses: actions/checkout@v2
-      - uses: joshuaavalon/flyway-action@v3.0.0
+      - uses: nathansutton/flyway-action@v9
         with:
           url: jdbc:postgresql://postgres:5432/db
           user: user
