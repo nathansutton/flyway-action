@@ -33,18 +33,17 @@ jobs:
       - run: echo 'testing'
 ```
 
-Currently, it supports `url`, `user`, `password`, `initSql`, `schemas`, and `locations`. `locations` are default to `filesystem:./sql`.
+Currently, it supports `url`, `user`, `password`, `initSql`, `schemas`, `validate`, and `locations`. `locations` are default to `filesystem:./sql`.
 
 Extra configurations can be passed via environment variables.
 
 ```yaml
-- uses: joshuaavalon/flyway-action@v3.0.0
+- uses: nathansutton/flyway-action@v9
   with:
     url: jdbc:postgresql://postgres:5432/db
     user: user
     password: password
-  env:
-    FLYWAY_VALIDATE_MIGRATION_NAMING: true
+    validate: true
 ```
 
 For details, please check out Flyway [documentation].

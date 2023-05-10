@@ -24,6 +24,9 @@ inputs:
   initSql:
     description: The SQL statements to run to initialize a new database connection immediately after opening it
     required: false
+  validate:
+    description: Should flyway validate the migrations?
+    required: false
 runs:
   using: docker
   image: docker://flyway/flyway:9
@@ -34,6 +37,7 @@ runs:
     FLYWAY_PASSWORD: ${{ inputs.password }}
     FLYWAY_LOCATIONS: ${{ inputs.locations }}
     FLYWAY_INIT_SQL: ${{ inputs.initSql }}
+    FLYWAY_VALIDATE_MIGRATION_NAMING: ${{ inputs.validate}}
   args:
     - migrate
     
