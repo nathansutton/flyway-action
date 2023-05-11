@@ -2,6 +2,10 @@
 
 This action runs [Flyway v9][flyway] to migrate database. It aims to migrate database for testing in workflows.
 
+It is based on the excellent work of [@joshuaavalon](https://github.com/joshuaavalon/flyway-action).
+
+The main addition for this fork is to add a schemas argument to allow for non-public flyway migrations.
+
 ## Usage
 
 ```yaml
@@ -33,18 +37,7 @@ jobs:
       - run: echo 'testing'
 ```
 
-Currently, it supports `url`, `user`, `password`, `initSql`, `schemas`, `validate`, and `locations`. `locations` are default to `filesystem:./sql`.
-
-Extra configurations can be passed via environment variables.
-
-```yaml
-- uses: nathansutton/flyway-action@v9
-  with:
-    url: jdbc:postgresql://postgres:5432/db
-    user: user
-    password: password
-    validate: true
-```
+Currently, it supports `url`, `user`, `password`, `initSql`, `schemas`, and `locations`. `locations` are default to `filesystem:./sql`.
 
 For details, please check out Flyway [documentation].
 

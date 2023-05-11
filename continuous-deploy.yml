@@ -1,0 +1,27 @@
+# create an environment in github for production
+# assign the secrets 'url', 'user', and 'password' to environment
+name: app
+on:
+  pull_request:
+    branches: 
+      - main
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nathansutton/flyway-action@v9
+        with:
+          url: ${{ secrets.url }}
+          user: ${{ secrets.user }}
+          password: ${{ secrets.password }}
+          locations: filesystem:./sql/schema1/
+          schemas: schema1
+      - uses: nathansutton/flyway-action@v9
+        with:
+          url: ${{ secrets.url }}
+          user: ${{ secrets.user }}
+          password: ${{ secrets.password }}
+          locations: filesystem:./sql/schema2/
+          schemas: schema2 
