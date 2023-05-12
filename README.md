@@ -13,7 +13,7 @@ Use a throwaway database on a pull request to ensure your migrations work in eac
 ```yaml
 name: ci
 on:
-  push:
+  pull_request:
     branches: 
       - main
 jobs:
@@ -55,10 +55,10 @@ jobs:
 On commits to your trunk, deploy the migrations for each schema automatically to your real database.
 To use this, create an environment in github for production and assign the secrets 'url', 'user', and 'password' to environment.
 
-```
+```yaml
 name: app
 on:
-  pull_request:
+  push:
     branches: 
       - main
 jobs:
