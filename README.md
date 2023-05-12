@@ -53,10 +53,9 @@ jobs:
 ## Sample Continous Deploy Pipeline
 
 On commits to your trunk, deploy the migrations for each schema automatically to your real database.
+To use this, create an environment in github for production and assign the secrets 'url', 'user', and 'password' to environment.
 
 ```
-# create an environment in github for production
-# assign the secrets 'url', 'user', and 'password' to environment
 name: app
 on:
   pull_request:
